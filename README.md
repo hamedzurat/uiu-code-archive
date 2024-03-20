@@ -17,3 +17,7 @@ This repository archives my code from coursework, assignments, and homework at U
 #### SPL ct
 
 ![night sky](./__drawings__/SPL-ct1.png)
+
+#### SPL mid
+
+![KPC](./__drawings__/SPL-mid.png)
