@@ -25,3 +25,7 @@ This repository archives my code from coursework, assignments, and homework at U
 #### SPL ct 2
 
 ![ship](./__drawings__/SPL-ct2.png)
+
+#### SPL final
+
+![computer](./__drawings__/SPL-final.png)
