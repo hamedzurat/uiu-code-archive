@@ -26,6 +26,10 @@ This repository archives my code from coursework, assignments, and homework at U
 
 ![ship](./__drawings__/SPL-ct2.png)
 
-#### SPL final
+#### OOP ct 1
 
-![computer](./__drawings__/SPL-final.png)
+![computer](./__drawings__/OOP-ct1.png)
+
+#### OOP ct 2
+
+![AI overlord](./__drawings__/OOP-ct2.png)
