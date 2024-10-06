@@ -33,3 +33,7 @@ This repository archives my code from coursework, assignments, and homework at U
 #### OOP ct 2
 
 ![AI overlord](./__drawings__/OOP-ct2.png)
+
+#### OOP final
+
+![Rocket](./__drawings__/OOP-final.png)
