@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="demo">
+    <output-path>$PROJECT_DIR$/output</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="org.example.demo.HelloApplication" />
+        <option name="convertCss2Bin" value="true" />
+        <option name="description" value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="msgOutputLevel" value="Verbose" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="HelloApplication" />
+        <option name="vendor" value="zurat" />
+        <option name="version" value="1.0.0" />
+      </options>
+    </properties>
+    <root id="root" />
+  </artifact>
+</component>
