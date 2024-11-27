@@ -9,11 +9,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class NextController {
     @FXML
     public void goPrev(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoaderPrev = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scenePrev = new Scene(fxmlLoaderPrev.load());
+        Scene      scenePrev      = new Scene(fxmlLoaderPrev.load());
 
         Stage st = (Stage) ((Node) e.getSource()).getScene().getWindow();
 

@@ -9,27 +9,27 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+
 import java.io.IOException;
+
 
 public class HelloController {
     @FXML
-    private Label text;
+    private Label      text;
     @FXML
     private AnchorPane window;
     @FXML
-    private Circle golla;
+    private Circle     golla;
 
     @FXML
     public void goNext(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoaderNext = new FXMLLoader(HelloApplication.class.getResource("next-world.fxml"));
-        Scene sceneNext = new Scene(fxmlLoaderNext.load());
+        Scene      sceneNext      = new Scene(fxmlLoaderNext.load());
 
         Stage st = (Stage) ((Node) e.getSource()).getScene().getWindow();
 
         st.setScene(sceneNext);
         st.show();
-
-        
     }
 
     @FXML
@@ -73,6 +73,4 @@ public class HelloController {
         text.setScaleY(text.getScaleY() - .1);
         golla.setRadius(golla.getRadius() - 10);
     }
-
-
 }

@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
     <children>
         <ButtonBar layoutX="200.0" layoutY="350.0" prefHeight="36.0" prefWidth="369.0">
-         <buttons>
-            <Button mnemonicParsing="false" onAction="#moveUp" text="Up" />
-            <Button mnemonicParsing="false" onAction="#moveDown" text="Down" />
-            <Button mnemonicParsing="false" onAction="#moveRight" text="Right" />
-            <Button mnemonicParsing="false" onAction="#moveLeft" prefHeight="25.0" text="Left" />
-         </buttons>
+            <buttons>
+                <Button mnemonicParsing="false" onAction="#moveUp" text="Up"/>
+                <Button mnemonicParsing="false" onAction="#moveDown" text="Down"/>
+                <Button mnemonicParsing="false" onAction="#moveRight" text="Right"/>
+                <Button mnemonicParsing="false" onAction="#moveLeft" prefHeight="25.0" text="Left"/>
+            </buttons>
         </ButtonBar>
-      <Button layoutX="494.0" layoutY="325.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="25.0" prefWidth="75.0" text="zoom out" />
-      <Button layoutX="494.0" layoutY="290.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="25.0" prefWidth="75.0" text="zoom in" />
-      <Circle fx:id="golla" fill="DODGERBLUE" layoutX="121.0" layoutY="108.0" radius="61.0" stroke="BLACK" strokeType="INSIDE" />
-        <Label fx:id="text" layoutX="88.0" layoutY="82.0" prefHeight="36.0" prefWidth="122.0" text="text" textAlignment="CENTER" textFill="RED">
+        <Button layoutX="494.0" layoutY="325.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="25.0"
+                prefWidth="75.0" text="zoom out"/>
+        <Button layoutX="494.0" layoutY="290.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="25.0"
+                prefWidth="75.0" text="zoom in"/>
+        <Circle fx:id="golla" fill="DODGERBLUE" layoutX="121.0" layoutY="108.0" radius="61.0" stroke="BLACK"
+                strokeType="INSIDE"/>
+        <Label fx:id="text" layoutX="88.0" layoutY="82.0" prefHeight="36.0" prefWidth="122.0" text="text"
+               textAlignment="CENTER" textFill="RED">
             <font>
-                <Font size="36.0" />
+                <Font size="36.0"/>
             </font>
         </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goNext" text="change the world" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goNext" text="change the world"/>
     </children>
 </AnchorPane>
