@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RUN: client" type="Application" factoryName="Application" singleton="false">
+    <option name="MAIN_CLASS_NAME" value="client.Client" />
+    <module name="chat" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="client.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
