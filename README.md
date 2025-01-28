@@ -37,3 +37,12 @@ This repository archives my code from coursework, assignments, and homework at U
 #### OOP final
 
 ![Rocket](./__drawings__/OOP-final.png)
+
+#### AOOP ct 2
+
+![DNA](./__drawings__/AOOP-ct2.png)
+
+#### AOOP ct 3
+
+![Planet](./__drawings__/AOOP-ct3.png)
+
