@@ -1,0 +1,24 @@
+2c2
+< #include <queue>
+---
+> #include <stack>
+24c24
+< void floodFillBFS(const Coordinate& startCell, const vector<vector<int>>& grid, vector<vector<bool>>& visitedCells) {
+---
+> void floodFillDFS(const Coordinate& startCell, const vector<vector<int>>& grid, vector<vector<bool>>& visitedCells) {
+28c28
+<     queue<Coordinate> _;
+---
+>     stack<Coordinate> _;
+33c33
+<         Coordinate currentCell = _.front();
+---
+>         Coordinate currentCell = _.top();
+55c55
+<                 floodFillBFS({ row, col }, grid, visitedCells);
+---
+>                 floodFillDFS({ row, col }, grid, visitedCells);
+71c71
+<     cout << "Number of islands (BFS): "
+---
+>     cout << "Number of islands (DFS): "

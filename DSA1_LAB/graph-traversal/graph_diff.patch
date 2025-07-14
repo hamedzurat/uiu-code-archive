@@ -1,0 +1,20 @@
+2c2
+< #include <queue>
+---
+> #include <stack>
+7,8c7,8
+< void bfs(int start, const vector<vector<int>>& graph, vector<bool>& visited) {
+<     queue<int> _;
+---
+> void dfs(int start, const vector<vector<int>>& graph, vector<bool>& visited) {
+>     stack<int> _;
+13c13
+<         int node = _.front();
+---
+>         int node = _.top();
+39,40c39,40
+<     cout << "BFS starting from node 0:\n";
+<     bfs(0, graph, visited);
+---
+>     cout << "DFS (iterative) starting from node 0:\n";
+>     dfs(0, graph, visited);
