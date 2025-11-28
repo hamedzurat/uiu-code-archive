@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Inter, sans-serif;
+  gap: 10px;
+  background-color: darkslategrey;
+}
+
+button {
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 4px;
+  box-shadow: 6px 6px whitesmoke;
+}
+button:hover {
+  box-shadow: 6px 6px palevioletred;
+}
+button:active {
+  box-shadow: 4px 4px red;
+}
+
+#cancle {
+  color: violet;
+  background-color: blue;
+  border: none;
+  border-radius: 4px;
+}

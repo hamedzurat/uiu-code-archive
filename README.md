@@ -32,6 +32,8 @@ This repository archives my code from coursework, assignments, and homework at U
 
 #### OOP ct 2
 
+<!-- ![AI overlord w/ border](./__drawings__/OOP-ct2.1.png) -->
+
 ![AI overlord](./__drawings__/OOP-ct2.png)
 
 #### OOP final
@@ -42,6 +44,8 @@ This repository archives my code from coursework, assignments, and homework at U
 
 ![DNA](./__drawings__/AOOP-ct2.png)
 
+<!-- ![AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA](./__drawings__/AOOP-ct2.2.png) -->
+
 #### AOOP ct 3
 
 ![Planet](./__drawings__/AOOP-ct3.png)
@@ -50,3 +54,10 @@ This repository archives my code from coursework, assignments, and homework at U
 
 ![lenny](./__drawings__/DSA1-mid.png)
 
+#### DSA1 final
+
+![untitled](./__drawings__/DSA1-final.png)
+
+#### DSA2 mid
+
+![me](./__drawings__/DSA2-mid.png)

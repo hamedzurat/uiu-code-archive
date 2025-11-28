@@ -71,4 +71,3 @@ int main() {
     FracKnapSack(shop, 6);
     return 0;
 }
-
