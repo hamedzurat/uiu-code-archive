@@ -61,3 +61,7 @@ This repository archives my code from coursework, assignments, and homework at U
 #### DSA2 mid
 
 ![me](./__drawings__/DSA2-mid.png)
+
+#### DB ct 1
+
+![pythagoras](./__drawings__/DB-ct1.png)
