@@ -1,2 +1,7 @@
 use zurat113;
-select * from Student;
+
+SELECT
+    *
+FROM
+    Student;
+

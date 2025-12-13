@@ -1,2 +1,7 @@
-use Johir_PetCare
-select * into zurat_petcare.dbo.Pets from pets
+use Johir_PetCare;
+
+SELECT
+    * INTO zurat_petcare.dbo.Pets
+FROM
+    pets;
+

@@ -1,4 +1,16 @@
-use zurat_petcare
+use zurat_petcare;
 
-select * from Pets where name like 'm%'
-select * from Pets where name like '%i%'
+SELECT
+    *
+FROM
+    Pets
+WHERE
+    name LIKE 'm%';
+
+SELECT
+    *
+FROM
+    Pets
+WHERE
+    name LIKE '%i%';
+

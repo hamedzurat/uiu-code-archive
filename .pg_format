@@ -1,0 +1,145 @@
+###############################################################################
+# .pg_format — pgFormatter configuration file
+# Syntax: key=value
+# Boolean values: 0 = off, 1 = on
+###############################################################################
+
+###############################################################################
+# Indentation
+###############################################################################
+
+# spaces: number of spaces per indent level (1–8, default 4)
+spaces=4
+
+# tabs: use tab characters instead of spaces (0=spaces, 1=tabs)
+tabs=0
+
+###############################################################################
+# Output format
+###############################################################################
+
+# format: output format (text, html)
+format=text
+
+# format-type: alternate formatting engine (0=default, 1=alternate)
+format-type=0
+
+###############################################################################
+# Statement grouping / layout
+###############################################################################
+
+# nogrouping: disable grouping statements inside transactions (0=group, 1=disable)
+nogrouping=0
+
+# keep-newline: preserve blank lines in PL/pgSQL blocks (0=remove, 1=keep)
+keep-newline=0
+
+# no-extra-line: suppress extra newline at end of file (0=add, 1=remove)
+no-extra-line=0
+
+###############################################################################
+# Comma and list formatting
+###############################################################################
+
+# comma-end: keep commas at end of line (0=off, 1=on)
+comma-end=1
+
+# comma-start: move commas to beginning of next line (0=off, 1=on)
+comma-start=0
+
+# comma-break: force newline after commas in INSERT/VALUES lists (0=off, 1=on)
+comma-break=0
+
+# wrap-after: wrap lists after N elements (0=default behavior)
+wrap-after=0
+
+###############################################################################
+# Line wrapping and length control
+###############################################################################
+
+# wrap-limit: wrap SQL statements at column N (0=no wrapping)
+wrap-limit=0
+
+# wrap-comment: wrap comments when wrap-limit is reached (0=off, 1=on)
+wrap-comment=0
+
+# maxlength: truncate queries longer than N characters (0=no limit)
+maxlength=0
+
+###############################################################################
+# Identifier and keyword casing
+###############################################################################
+# Case values:
+# 0 = unchanged
+# 1 = lowercase
+# 2 = UPPERCASE
+# 3 = Capitalize
+
+# keyword-case: SQL reserved keywords
+keyword-case=2
+
+# function-case: PostgreSQL built-in functions
+function-case=0
+
+# type-case: PostgreSQL data types
+type-case=2
+
+###############################################################################
+# Comments and numbering
+###############################################################################
+
+# nocomment: remove all comments from SQL (0=keep, 1=remove)
+nocomment=0
+
+# numbering: add query numbering comments (0=off, 1=on)
+numbering=0
+
+###############################################################################
+# Placeholder / protected code
+###############################################################################
+
+# placeholder: regex for code blocks that must not be reformatted
+placeholder=
+
+# multiline: enable multiline regex for placeholder (0=off, 1=on)
+multiline=0
+
+###############################################################################
+# Dynamic SQL handling
+###############################################################################
+
+# separator: character used to detect dynamic SQL strings
+separator='
+
+###############################################################################
+# Extensions: custom keywords and functions
+###############################################################################
+
+# extra-function: file path with additional function names (one per line)
+extra-function=
+
+# extra-keyword: file path with extra keywords OR value 'redshift'
+extra-keyword=
+
+# redshift: legacy Redshift compatibility flag (0=off, 1=on)
+redshift=0
+
+###############################################################################
+# Anonymization and debugging
+###############################################################################
+
+# anonymize: replace literals with placeholders (0=off, 1=on)
+anonymize=0
+
+# debug: enable debug output (0=off, 1=on)
+debug=0
+
+###############################################################################
+# Misc behavior
+###############################################################################
+
+# no-space-function: remove space before function parentheses (0=keep, 1=remove)
+no-space-function=0
+
+# redundant-parenthesis: keep redundant parentheses in DML (0=remove, 1=keep)
+redundant-parenthesis=0

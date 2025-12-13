@@ -1,3 +1,9 @@
-use zurat_petcare
+use zurat_petcare;
 
-update Pets set owner_name='eee' where pet_id=10
+UPDATE
+    Pets
+SET
+    owner_name = 'eee'
+WHERE
+    pet_id = 10;
+

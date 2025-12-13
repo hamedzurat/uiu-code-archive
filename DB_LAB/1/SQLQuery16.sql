@@ -1,2 +1,9 @@
 use DBMS3522;
-select * from Employee where AnnualIncome>40200;
+
+SELECT
+    *
+FROM
+    Employee
+WHERE
+    AnnualIncome > 40200;
+

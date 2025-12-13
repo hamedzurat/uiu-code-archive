@@ -1,6 +1,10 @@
 use DBMS3522;
-select 
-	Country, 
-	count(EmployeeId) As Numbers 
-from Employee
-group by Country;
+
+SELECT
+    Country,
+    Count(EmployeeId) AS Numbers
+FROM
+    Employee
+GROUP BY
+    Country;
+

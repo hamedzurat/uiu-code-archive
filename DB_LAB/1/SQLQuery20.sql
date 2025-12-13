@@ -1,7 +1,12 @@
 use DBMS3522;
-select 
-	EmployeeID,
-	EmployeeName,
-	max(AnnualIncome) As MaxIncome 
-from Employee 
-group by EmployeeID, EmployeeName;
+
+SELECT
+    EmployeeID,
+    EmployeeName,
+    Max(AnnualIncome) AS MaxIncome
+FROM
+    Employee
+GROUP BY
+    EmployeeID,
+    EmployeeName;
+

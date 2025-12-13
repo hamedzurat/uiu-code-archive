@@ -1,1 +1,2 @@
-drop database zurat113
+DROP DATABASE zurat113;
+

@@ -1,3 +1,8 @@
 use DBMS3522;
-select 'Total cost' as Total, 
-sum(AnnualIncome) As TotalIncome from Employee;
+
+SELECT
+    'Total cost' AS Total,
+    Sum(AnnualIncome) AS TotalIncome
+FROM
+    Employee;
+

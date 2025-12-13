@@ -1,3 +1,7 @@
-use zurat_petcare
+use zurat_petcare;
 
-select * from vwStudentEnroll
+SELECT
+    *
+FROM
+    vwStudentEnroll;
+

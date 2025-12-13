@@ -1,1 +1,2 @@
-create database zurat113
+CREATE DATABASE zurat113;
+

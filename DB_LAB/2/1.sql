@@ -1,2 +1,3 @@
 --# create db
-create database zurat_petcare
+CREATE DATABASE zurat_petcare;
+

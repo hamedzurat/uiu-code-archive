@@ -1,2 +1,7 @@
-use zurat_petcare
-select * from pets
+use zurat_petcare;
+
+SELECT
+    *
+FROM
+    pets;
+
