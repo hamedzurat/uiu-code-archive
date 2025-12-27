@@ -1,0 +1,167 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#top {
+  display: flex;
+}
+
+#uid {
+  padding: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  width: 50vw;
+}
+
+span#uid {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ff4419;
+}
+
+#buttons {
+  display: flex;
+  width: 50vw;
+  justify-content: right;
+  align-items: center;
+}
+
+button {
+  font-weight: 500;
+  padding: 10px 20px 10px 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.primary {
+  font-weight: 700;
+  background-color: #ff4419;
+  color: white;
+}
+
+#bottom {
+  display: flex;
+  padding: 5px;
+  gap: 30px;
+}
+
+.dropdowns {
+  font-weight: 500;
+}
+
+#body {
+  height: 60vh;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h1 u,
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h1 u {
+  text-decoration-style: dashed;
+}
+
+#cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 1vw;
+}
+
+.card {
+  width: 13vw;
+  height: 13vw;
+  border: 4px solid black;
+  border-radius: 0;
+  box-shadow: 8px 8px 0px 0px;
+  background-color: white;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.H {
+  font-size: 20px;
+  font-weight: 600;
+}
+.N {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.money {
+  font-size: 62px;
+  font-weight: 900;
+}
+.sec {
+  width: 100%;
+  border-radius: 2px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #1d78f0;
+  color: white;
+}
+
+.notice {
+  margin-top: 10px;
+  opacity: 50%;
+  margin-left: 50px;
+}
+
+#footer {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  opacity: 80%;
+}
+
+h3 u {
+  text-decoration-style: dotted;
+}
+
+a {
+  color: #1d78f0;
+}
