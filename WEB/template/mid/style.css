@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.bg-brand {
+  background-color: #4f46e5;
+}

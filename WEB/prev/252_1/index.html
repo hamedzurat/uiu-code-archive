@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div id="sidebar">
+        <div id="logo">UIU LEARNING HUB</div>
+        <div id="tabs">
+          <div class="active">Dashboard</div>
+          <div>My Curses</div>
+          <div>Assignmnets</div>
+          <div>Exams</div>
+          <div>Resources</div>
+          <div>Grades & Results</div>
+          <div>Calendar</div>
+          <div>Discussion Forum</div>
+          <div>Settings</div>
+        </div>
+      </div>
+      <div id="body">
+        <div id="welcome">
+          <h1>Welcome to ypur leaning Dhashboard</h1>
+          <div id="search">
+            <input placeholder="Search courses, resources..." />
+          </div>
+        </div>
+        <div id="sections">
+          <div class="sec">
+            <div class="img">
+              <h4>CSE 4165: Web Programming</h4>
+              <span>Prof. Rahman</span>
+            </div>
+            <div class="stats">
+              <progress></progress>
+              <div class="stat">
+                <span>Progress: 75%</span>
+                <span id="grade">Grade: A</span>
+              </div>
+            </div>
+          </div>
+          <div class="sec">
+            <div class="img">
+              <h4>CSE 3115: Database Systems</h4>
+              <span>Dr. Karim</span>
+            </div>
+            <div class="stats">
+              <progress></progress>
+              <div class="stat">
+                <span>Progress: 45%</span>
+                <span>Grade: B+</span>
+              </div>
+            </div>
+          </div>
+          <div class="sec">
+            <div class="img">
+              <h4>CSE 3412: Algorithms</h4>
+              <span>Prof. Ahmed</span>
+            </div>
+            <div class="stats">
+              <progress></progress>
+              <div class="stat">
+                <span>Progress: 90%</span>
+                <span>Grade: A+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>Upcoming CLasses & Deadlines</h2>
+        <div id="cards">
+          <div class="card">
+            <span>Today, 11:00 AM - 12:30 PM</span>
+            <h3>Web Programming</h3>
+            <div class="tag">Lecture</div>
+          </div>
+          <div class="card">
+            <span>Tomorrow, 9:30 AM</span>
+            <h3>Database Quiz</h3>
+            <div class="tag">Assessment</div>
+          </div>
+          <div class="card">
+            <span>Apr 6, 2:00 PM - 4:00 PM</span>
+            <h3>Algorithms Lab</h3>
+            <div class="tag">Practical</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

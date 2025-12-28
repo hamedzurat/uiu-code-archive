@@ -1,0 +1,126 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  display: flex;
+}
+
+#sidebar {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#logo {
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  background-color: #21417c;
+  padding: 10px;
+  padding-top: 20px;
+  height: 6vh;
+}
+
+#tabs {
+  background-color: #203f78;
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+}
+#tabs div {
+  padding: 10px;
+  color: white;
+}
+
+.active {
+  background-color: lightskyblue;
+}
+
+#body {
+  width: 90vw;
+}
+
+#welcome {
+  display: flex;
+  padding: 2vw;
+}
+
+h1 {
+  width: 40vw;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#search {
+  width: 38vw;
+  display: flex;
+  justify-content: end;
+}
+
+input {
+  border: none;
+  width: 20vw;
+}
+
+#sections {
+  display: flex;
+  padding: 2vw;
+  justify-content: start;
+  gap: 10px;
+}
+
+.sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-grow: 1;
+}
+
+.img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: darkolivegreen;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 40px;
+}
+
+h4 {
+  font-weight: 700;
+  color: white;
+}
+
+.stats {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.grade {
+  display: flex;
+  justify-content: end;
+}
+
+h2 {
+  padding-left: 2vw;
+}
+
+#cards {
+  display: flex;
+  padding: 2vw;
+}
