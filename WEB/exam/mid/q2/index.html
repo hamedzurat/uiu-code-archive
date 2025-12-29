@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./tailwindcss-v4.js"></script>
+    <style type="text/tailwindcss"></style>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Question 2</title>
+  </head>
+
+  <body
+    class="h-screen w-screen box-border flex flex-col bg-slate-50 text-slate-900 overflow-hidden"
+  >
+    <div
+      id="header"
+      class="p-8 h-1/12 flex flex-row justify-between items-center"
+    >
+      <div class="font-bold text-2xl">Dashboard</div>
+      <div class="flex gap-4 text-xl">
+        <button class="text-[#c1cdff]">Home</button>
+        <button>Project</button>
+        <button>Tasks</button>
+        <button>Reports</button>
+        <button>Settings</button>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex flex-col justify-center items-start">
+          <span>John Smith</span>
+          <span>Admin</span>
+        </div>
+        <div
+          class="w-12 h-12 rounded-full bg-[#536ffe] p-3 pl-4 font-bold text-white"
+        >
+          JS
+        </div>
+      </div>
+    </div>
+    <div
+      id="body"
+      class="bg-[#ebebeb] flex flex-col gap-4 h-11/12 p-8 justify-between"
+    >
+      <div>
+        <h1 class="text-4xl font-bold">Hi John</h1>
+        <h2 class="text-md">Welome to your dashbaord!</h2>
+      </div>
+      <div class="flex justify-between">
+        <div
+          class="flex flex-1 bg-slate-50 shadow-md h-64 gap-4 justify-center items-center p-4 rounded-md"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-[#536ffe] p-3 pl-4 font-bold text-white"
+          >
+            JS
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold">John Smith</span>
+            <span>Web & Graphics designer</span>
+          </div>
+          <div class="flex flex-col w-64">
+            <div class="flex flex-col">
+              <span>PROJECT COMPLETION</span>
+              <progress value="80" max="100" class="bg-[#536ffe]"></progress>
+              <span>80%</span>
+            </div>
+            <div class="flex flex-col">
+              <span>OVERALL RATING</span>
+              <progress value="7" max="10" class="bg-[#f93536]"></progress>
+              <span>7/10</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col flex-1 h-64 gap-2 justify-center items-center p-4 rounded-md"
+        >
+          <div
+            class="flex flex-col w-40 bg-slate-50 shadow-md gap-4 justify-between items-start p-4"
+          >
+            <span>Tasks Competed</span>
+            <span class="text-6xl">17</span>
+          </div>
+          <div
+            class="flex flex-col w-40 bg-slate-50 shadow-md gap-4 justify-between items-start p-4"
+          >
+            <span>Tasks in Progress</span>
+            <span class="text-6xl">24</span>
+          </div>
+        </div>
+        <div
+          class="flex flex-col flex-1 bg-slate-50 shadow-md gap-4 p-8 rounded-md justify-between"
+        >
+          <div class="flex flex-col">
+            <span>Revenue</span>
+            <span class="text-7xl">30,000/-</span>
+          </div>
+          <div>
+            <span>Last Week</span>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-xl font-bold">Recent Project</h1>
+      <div id="cards" class="flex justify-between">
+        <div
+          class="flex flex-col w-96 bg-slate-50 shadow-md gap-4 p-8 rounded-md"
+        >
+          <h3>UIU Canteen</h3>
+          <p class="bg-[#c1cdff] rounded-4xl max-w-16 pl-2">Design</p>
+          <lable>Update the website logo...</lable>
+          <progress value="90" max="100" class="bg-[#c1cdff]"></progress>
+          <p>90%</p>
+        </div>
+        <div
+          class="flex flex-col w-96 bg-slate-50 shadow-md gap-4 p-8 rounded-md"
+        >
+          <h3>Valorant Knockoff</h3>
+          <p class="bg-[#9efe1e] rounded-4xl max-w-16 pl-2">Plan</p>
+          <lable>Plan better ranking system...</lable>
+          <progress value="50" max="100" class="bg-[#9efe1e]"></progress>
+          <p>50%</p>
+        </div>
+        <div
+          class="flex flex-col w-96 bg-slate-50 shadow-md gap-4 p-8 rounded-md"
+        >
+          <h3>Prompt Engineering</h3>
+          <p class="bg-[#febd57] rounded-4xl max-w-16 pl-2">Development</p>
+          <lable>Cmmuniacate with the team...</lable>
+          <progress value="60" max="100" class="bg-[#febd57]"></progress>
+          <p>60%</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

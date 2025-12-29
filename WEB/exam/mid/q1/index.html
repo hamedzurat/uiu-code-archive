@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./tailwindcss-v4.js"></script>
+    <style type="text/tailwindcss"></style>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Question 1</title>
+  </head>
+
+  <body
+    class="h-screen w-screen flex flex-col justify-between box-border bg-slate-50 text-slate-900 overflow-hidden"
+  >
+    <div id="header" class="flex p-4 h-1/12 justify-between items-center">
+      <div class="text-2xl text-[#3f46a4] font-bold">ProConnect</div>
+      <div class="flex gap-5">
+        <div>Features</div>
+        <div>Pricing</div>
+        <div>Support</div>
+      </div>
+    </div>
+    <div id="body" class="bg-[#eceff4] p-8 h-11/12">
+      <div class="flex min-h-full">
+        <div
+          id="left"
+          class="bg-[#eff6fe] p-8 w-2/3 flex flex-col justify-between gap-4 box-border"
+        >
+          <h1 class="text-[#3f46a4] text-7xl font-bold mt-8">
+            Launch Your Project, Faster
+          </h1>
+          <h2 class="text-xl">The ultimate tool for modern teams.</h2>
+          <h3 class="text-base">
+            Join over 10000 satisfied users who have streamlined their workflow
+            with ProConnect. Sign up today and get 30 days free accress.
+          </h3>
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-[#50ad50]"></div>
+            <div class="text-[#71adec] pl-2">Real-time collaboration</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-[#50ad50]"></div>
+            <div class="pl-2">Advanced Reporting tool</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-[#50ad50]"></div>
+            <div class="pl-2">Enterprise-grde Security</div>
+          </div>
+          <div class="flex gap-8">
+            <button class="bg-[#50ad50] text-white rounded-md p-2">
+              Learn More
+            </button>
+            <button
+              class="border-2 border-[#3f46a4] text-[#3f46a4] rounded-md p-2"
+            >
+              Watch Demo
+            </button>
+          </div>
+        </div>
+        <div
+          id="right"
+          class="bg-slate-50 w-1/3 flex flex-col gap-4 items-center p-8 box-border"
+        >
+          <h2 class="text-[#3f46a4] text-2xl font-bold">
+            Start Your Free Trail
+          </h2>
+          <div id="form" class="flex flex-col gap-4 w-full p-8">
+            <label class="text-lg tracking-tight font-bold">Full Name</label>
+            <input
+              type="text"
+              class="border-2 rounded-md p-4"
+              placeholder="Hohn Doe"
+            />
+            <label class="text-lg tracking-tight font-bold">Wrok Email</label>
+            <input
+              type="email"
+              class="border-2 rounded-md p-4"
+              placeholder="emil@company.com"
+            />
+            <label class="text-lg tracking-tight font-bold"
+              >Choose Password</label
+            >
+            <input type="password" class="border-2 rounded-md p-4" />
+            <div class="flex w-full">
+              <input type="checkbox" />
+              <label class="text-lg tracking-tight font-bold p-2"
+                >I agree to the
+                <a class="text-[#6fb570] underline">Terms of Service</a>
+              </label>
+            </div>
+            <button
+              class="bg-[#fefefe] text-black p-4 rounded-md font-black tracking-wide"
+            >
+              Create Acount
+            </button>
+          </div>
+          <a class="text-[#6fb570] underline">Already a user ? Longin Here</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
