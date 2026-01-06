@@ -6,4 +6,6 @@ find . \( -name "*.c" -o -name "*.cpp" -o -name "*.cc" -o -name "*.cxx" -o -name
 
 find . -type f -name '*.sql' -print0 | parallel -0 --no-run-if-empty pg_format -i
 
+php-cs-fixer fix
+
 echo "Formatting complete."
