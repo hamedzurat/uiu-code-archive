@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBMS Lab Examination - Agricultural Firm Database</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Times New Roman', serif;
+        line-height: 1.6;
+        padding: 20px 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        color: #333;
+      }
+
+      .header {
+        text-align: center;
+        border-bottom: 3px double #2d5016;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        font-size: 18px;
+        color: #2d5016;
+        margin-bottom: 5px;
+      }
+
+      .header h2 {
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
+
+      .header .course-info {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .meta-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+
+      .story-section {
+        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        border-left: 5px solid #2d5016;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 0 10px 10px 0;
+      }
+
+      .story-section h3 {
+        color: #1b5e20;
+        margin-bottom: 12px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .story-section p {
+        font-size: 13px;
+        text-align: justify;
+        color: #2e7d32;
+      }
+
+      .schema-section {
+        margin-bottom: 25px;
+      }
+
+      .schema-section h3 {
+        color: #2d5016;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        font-size: 15px;
+      }
+
+      .table-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .db-table {
+        border: 1px solid #81c784;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .db-table .table-name {
+        background: linear-gradient(135deg, #2d5016 0%, #4caf50 100%);
+        color: white;
+        padding: 8px 12px;
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      .db-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11px;
+      }
+
+      .db-table th {
+        background: #e8f5e9;
+        color: #2d5016;
+        padding: 6px 8px;
+        text-align: left;
+        border-bottom: 1px solid #a5d6a7;
+      }
+
+      .db-table td {
+        padding: 5px 8px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .db-table tr:nth-child(even) {
+        background: #f5f5f5;
+      }
+
+      .pk {
+        color: #d32f2f;
+        font-weight: bold;
+      }
+
+      .fk {
+        color: #1565c0;
+        font-style: italic;
+      }
+
+      .questions-section {
+        margin-top: 25px;
+      }
+
+      .questions-section h3 {
+        color: #2d5016;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        font-size: 15px;
+      }
+
+      .question {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 0 8px 8px 0;
+        page-break-inside: avoid;
+      }
+
+      .question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .question-number {
+        background: #2d5016;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .question-marks {
+        background: #ff9800;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 11px;
+        font-weight: bold;
+      }
+
+      .question-topic {
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: bold;
+      }
+
+      .question-text {
+        font-size: 13px;
+        margin-top: 10px;
+        padding: 10px;
+        background: white;
+        border-radius: 5px;
+      }
+
+      .hint {
+        font-size: 11px;
+        color: #666;
+        font-style: italic;
+        margin-top: 8px;
+        padding-left: 10px;
+        border-left: 2px solid #ffc107;
+      }
+
+      .expected-output {
+        margin-top: 10px;
+        font-size: 11px;
+        color: #555;
+      }
+
+      .expected-output strong {
+        color: #2d5016;
+      }
+
+      .full-width-table {
+        grid-column: 1 / -1;
+      }
+
+      .instructions {
+        background: #fff3e0;
+        border: 1px solid #ffcc80;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        font-size: 12px;
+      }
+
+      .instructions h4 {
+        color: #e65100;
+        margin-bottom: 8px;
+      }
+
+      .instructions ul {
+        margin-left: 20px;
+      }
+
+      .instructions li {
+        margin-bottom: 3px;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 2px solid #4caf50;
+        font-size: 12px;
+        color: #666;
+      }
+
+      @media print {
+        body {
+          padding: 10px 20px;
+        }
+        .question {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🌾 DATABASE MANAGEMENT SYSTEMS - LAB EXAMINATION</h1>
+      <h2>Practical Assessment on SQL Queries</h2>
+      <div class="course-info">
+        Course Code: CSE-3522 | Session: Spring 2025
+      </div>
+    </div>
+
+    <div class="meta-info">
+      <div><strong>Student Name:</strong> _______________________</div>
+      <div><strong>ID:</strong> _________________</div>
+      <div><strong>Total Marks:</strong> 40</div>
+      <div><strong>Time:</strong> 90 Minutes</div>
+    </div>
+
+    <div class="instructions">
+      <h4>📋 Instructions:</h4>
+      <ul>
+        <li>
+          Create the database and tables as per the given schema before
+          attempting the questions.
+        </li>
+        <li>
+          Insert all the sample data provided below into respective tables.
+        </li>
+        <li>
+          Write SQL queries for each question and execute them to verify
+          results.
+        </li>
+        <li>
+          Save your SQL script file with your ID number before submission.
+        </li>
+      </ul>
+    </div>
+
+    <div class="story-section">
+      <h3>🌱 Case Study: GreenHarvest Agricultural Corporation</h3>
+      <p>
+        <strong>GreenHarvest Agricultural Corporation</strong> is a leading
+        agricultural enterprise established in 2015, operating across multiple
+        regions of Bangladesh. The company manages diverse farming operations
+        including rice, wheat, vegetables, and fruits across 15 farms spanning
+        over 5,000 acres. With a workforce of 200+ farmers and seasonal workers,
+        GreenHarvest has embraced technology to track crop production, manage
+        inventory, monitor sales, and evaluate employee performance. As the
+        newly appointed Database Administrator, you are tasked with analyzing
+        their operational data to help management make informed decisions about
+        crop planning, resource allocation, and performance evaluation for the
+        upcoming season.
+      </p>
+    </div>
+
+    <div class="schema-section">
+      <h3>📊 Database Schema & Sample Data</h3>
+
+      <div class="table-container">
+        <!-- Farms Table -->
+        <div class="db-table">
+          <div class="table-name">🏡 FARMS</div>
+          <table>
+            <tr>
+              <th><span class="pk">farm_id (PK)</span></th>
+              <th>farm_name</th>
+              <th>location</th>
+              <th>area_acres</th>
+            </tr>
+            <tr>
+              <td>F001</td>
+              <td>Sunrise Farm</td>
+              <td>Rajshahi</td>
+              <td>450</td>
+            </tr>
+            <tr>
+              <td>F002</td>
+              <td>Golden Fields</td>
+              <td>Dinajpur</td>
+              <td>380</td>
+            </tr>
+            <tr>
+              <td>F003</td>
+              <td>Green Valley</td>
+              <td>Bogra</td>
+              <td>520</td>
+            </tr>
+            <tr>
+              <td>F004</td>
+              <td>River Bank Farm</td>
+              <td>Rangpur</td>
+              <td>290</td>
+            </tr>
+            <tr>
+              <td>F005</td>
+              <td>Horizon Acres</td>
+              <td>Jessore</td>
+              <td>410</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Crops Table -->
+        <div class="db-table">
+          <div class="table-name">🌾 CROPS</div>
+          <table>
+            <tr>
+              <th><span class="pk">crop_id (PK)</span></th>
+              <th>crop_name</th>
+              <th>category</th>
+              <th>season</th>
+            </tr>
+            <tr>
+              <td>C001</td>
+              <td>Boro Rice</td>
+              <td>Cereal</td>
+              <td>Winter</td>
+            </tr>
+            <tr>
+              <td>C002</td>
+              <td>Aman Rice</td>
+              <td>Cereal</td>
+              <td>Monsoon</td>
+            </tr>
+            <tr>
+              <td>C003</td>
+              <td>Wheat</td>
+              <td>Cereal</td>
+              <td>Winter</td>
+            </tr>
+            <tr>
+              <td>C004</td>
+              <td>Potato</td>
+              <td>Vegetable</td>
+              <td>Winter</td>
+            </tr>
+            <tr>
+              <td>C005</td>
+              <td>Tomato</td>
+              <td>Vegetable</td>
+              <td>Winter</td>
+            </tr>
+            <tr>
+              <td>C006</td>
+              <td>Mango</td>
+              <td>Fruit</td>
+              <td>Summer</td>
+            </tr>
+            <tr>
+              <td>C007</td>
+              <td>Jute</td>
+              <td>Fiber</td>
+              <td>Monsoon</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Employees Table -->
+        <div class="db-table">
+          <div class="table-name">👨‍🌾 EMPLOYEES</div>
+          <table>
+            <tr>
+              <th><span class="pk">emp_id (PK)</span></th>
+              <th>emp_name</th>
+              <th><span class="fk">farm_id (FK)</span></th>
+              <th>designation</th>
+              <th>salary</th>
+              <th>join_date</th>
+            </tr>
+            <tr>
+              <td>E001</td>
+              <td>Karim Uddin</td>
+              <td>F001</td>
+              <td>Farm Manager</td>
+              <td>45000</td>
+              <td>2018-03-15</td>
+            </tr>
+            <tr>
+              <td>E002</td>
+              <td>Rahim Ahmed</td>
+              <td>F001</td>
+              <td>Supervisor</td>
+              <td>28000</td>
+              <td>2019-06-20</td>
+            </tr>
+            <tr>
+              <td>E003</td>
+              <td>Fatema Begum</td>
+              <td>F002</td>
+              <td>Farm Manager</td>
+              <td>42000</td>
+              <td>2017-01-10</td>
+            </tr>
+            <tr>
+              <td>E004</td>
+              <td>Jamal Hossain</td>
+              <td>F002</td>
+              <td>Field Worker</td>
+              <td>15000</td>
+              <td>2020-08-05</td>
+            </tr>
+            <tr>
+              <td>E005</td>
+              <td>Nasreen Akter</td>
+              <td>F003</td>
+              <td>Supervisor</td>
+              <td>30000</td>
+              <td>2019-11-12</td>
+            </tr>
+            <tr>
+              <td>E006</td>
+              <td>Belal Khan</td>
+              <td>F003</td>
+              <td>Field Worker</td>
+              <td>16000</td>
+              <td>2021-02-28</td>
+            </tr>
+            <tr>
+              <td>E007</td>
+              <td>Shirin Sultana</td>
+              <td>F004</td>
+              <td>Farm Manager</td>
+              <td>40000</td>
+              <td>2018-09-01</td>
+            </tr>
+            <tr>
+              <td>E008</td>
+              <td>Mostafa Ali</td>
+              <td>NULL</td>
+              <td>Consultant</td>
+              <td>55000</td>
+              <td>2022-01-15</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Production Table -->
+        <div class="db-table">
+          <div class="table-name">📦 PRODUCTION</div>
+          <table>
+            <tr>
+              <th><span class="pk">prod_id (PK)</span></th>
+              <th><span class="fk">farm_id (FK)</span></th>
+              <th><span class="fk">crop_id (FK)</span></th>
+              <th>year</th>
+              <th>quantity_ton</th>
+              <th>production_cost</th>
+            </tr>
+            <tr>
+              <td>P001</td>
+              <td>F001</td>
+              <td>C001</td>
+              <td>2024</td>
+              <td>850</td>
+              <td>425000</td>
+            </tr>
+            <tr>
+              <td>P002</td>
+              <td>F001</td>
+              <td>C004</td>
+              <td>2024</td>
+              <td>320</td>
+              <td>192000</td>
+            </tr>
+            <tr>
+              <td>P003</td>
+              <td>F002</td>
+              <td>C001</td>
+              <td>2024</td>
+              <td>720</td>
+              <td>360000</td>
+            </tr>
+            <tr>
+              <td>P004</td>
+              <td>F002</td>
+              <td>C003</td>
+              <td>2024</td>
+              <td>450</td>
+              <td>225000</td>
+            </tr>
+            <tr>
+              <td>P005</td>
+              <td>F003</td>
+              <td>C002</td>
+              <td>2024</td>
+              <td>680</td>
+              <td>340000</td>
+            </tr>
+            <tr>
+              <td>P006</td>
+              <td>F003</td>
+              <td>C005</td>
+              <td>2024</td>
+              <td>180</td>
+              <td>126000</td>
+            </tr>
+            <tr>
+              <td>P007</td>
+              <td>F004</td>
+              <td>C006</td>
+              <td>2024</td>
+              <td>95</td>
+              <td>76000</td>
+            </tr>
+            <tr>
+              <td>P008</td>
+              <td>F001</td>
+              <td>C001</td>
+              <td>2023</td>
+              <td>780</td>
+              <td>390000</td>
+            </tr>
+            <tr>
+              <td>P009</td>
+              <td>F002</td>
+              <td>C001</td>
+              <td>2023</td>
+              <td>650</td>
+              <td>325000</td>
+            </tr>
+            <tr>
+              <td>P010</td>
+              <td>F003</td>
+              <td>C007</td>
+              <td>2024</td>
+              <td>420</td>
+              <td>168000</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Sales Table - Full Width -->
+        <div class="db-table full-width-table">
+          <div class="table-name">💰 SALES</div>
+          <table>
+            <tr>
+              <th><span class="pk">sale_id (PK)</span></th>
+              <th><span class="fk">prod_id (FK)</span></th>
+              <th>sale_date</th>
+              <th>quantity_sold</th>
+              <th>unit_price</th>
+              <th>buyer_name</th>
+              <th>payment_status</th>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>P001</td>
+              <td>2024-04-15</td>
+              <td>400</td>
+              <td>52000</td>
+              <td>City Traders Ltd</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S002</td>
+              <td>P001</td>
+              <td>2024-05-20</td>
+              <td>300</td>
+              <td>54000</td>
+              <td>National Foods</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S003</td>
+              <td>P002</td>
+              <td>2024-03-10</td>
+              <td>200</td>
+              <td>35000</td>
+              <td>Fresh Mart</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <td>S004</td>
+              <td>P003</td>
+              <td>2024-04-25</td>
+              <td>500</td>
+              <td>51000</td>
+              <td>City Traders Ltd</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S005</td>
+              <td>P004</td>
+              <td>2024-05-05</td>
+              <td>300</td>
+              <td>42000</td>
+              <td>Grain House</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S006</td>
+              <td>P005</td>
+              <td>2024-10-18</td>
+              <td>400</td>
+              <td>48000</td>
+              <td>National Foods</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <td>S007</td>
+              <td>P006</td>
+              <td>2024-02-28</td>
+              <td>100</td>
+              <td>65000</td>
+              <td>Fresh Mart</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S008</td>
+              <td>P007</td>
+              <td>2024-06-15</td>
+              <td>60</td>
+              <td>120000</td>
+              <td>Export Corp</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>S009</td>
+              <td>P010</td>
+              <td>2024-09-20</td>
+              <td>350</td>
+              <td>55000</td>
+              <td>Jute Mills Ltd</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <td>S010</td>
+              <td>P003</td>
+              <td>2024-06-10</td>
+              <td>150</td>
+              <td>53000</td>
+              <td>Grain House</td>
+              <td>Paid</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database Script Section -->
+    <div class="schema-section" style="margin-top: 30px">
+      <h3>💻 Database Creation Script</h3>
+      <p style="font-size: 12px; color: #555; margin-bottom: 15px">
+        Execute the following SQL scripts in sequence to create the database and
+        populate it with sample data.
+      </p>
+
+      <!-- Create Database -->
+      <div
+        style="
+          background: #1e1e1e;
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 15px;
+          overflow-x: auto;
+        "
+      >
+        <div
+          style="
+            color: #4caf50;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+          "
+        >
+          -- Step 1: Create Database
+        </div>
+        <pre
+          style="
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 0;
+            white-space: pre-wrap;
+          "
+        >
+<span style="color: #569cd6;">CREATE DATABASE</span> GreenHarvestDB;
+<span style="color: #569cd6;">GO</span>
+
+<span style="color: #569cd6;">USE</span> GreenHarvestDB;
+<span style="color: #569cd6;">GO</span>
+</pre>
+      </div>
+
+      <!-- Create Tables -->
+      <div
+        style="
+          background: #1e1e1e;
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 15px;
+          overflow-x: auto;
+        "
+      >
+        <div
+          style="
+            color: #4caf50;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+          "
+        >
+          -- Step 2: Create Tables
+        </div>
+        <pre
+          style="
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 0;
+            white-space: pre-wrap;
+          "
+        >
+<span style="color: #6a9955;">-- FARMS Table</span>
+<span style="color: #569cd6;">CREATE TABLE</span> FARMS (
+    farm_id      <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">PRIMARY KEY</span>,
+    farm_name    <span style="color: #4ec9b0;">VARCHAR(50)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    location     <span style="color: #4ec9b0;">VARCHAR(50)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    area_acres   <span style="color: #4ec9b0;">INT</span>           <span style="color: #569cd6;">NOT NULL</span>
+);
+
+<span style="color: #6a9955;">-- CROPS Table</span>
+<span style="color: #569cd6;">CREATE TABLE</span> CROPS (
+    crop_id      <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">PRIMARY KEY</span>,
+    crop_name    <span style="color: #4ec9b0;">VARCHAR(50)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    category     <span style="color: #4ec9b0;">VARCHAR(30)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    season       <span style="color: #4ec9b0;">VARCHAR(20)</span>   <span style="color: #569cd6;">NOT NULL</span>
+);
+
+<span style="color: #6a9955;">-- EMPLOYEES Table</span>
+<span style="color: #569cd6;">CREATE TABLE</span> EMPLOYEES (
+    emp_id       <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">PRIMARY KEY</span>,
+    emp_name     <span style="color: #4ec9b0;">VARCHAR(50)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    farm_id      <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">NULL</span>,
+    designation  <span style="color: #4ec9b0;">VARCHAR(30)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    salary       <span style="color: #4ec9b0;">DECIMAL(10,2)</span> <span style="color: #569cd6;">NOT NULL</span>,
+    join_date    <span style="color: #4ec9b0;">DATE</span>          <span style="color: #569cd6;">NOT NULL</span>,
+    <span style="color: #569cd6;">FOREIGN KEY</span> (farm_id) <span style="color: #569cd6;">REFERENCES</span> FARMS(farm_id)
+);
+
+<span style="color: #6a9955;">-- PRODUCTION Table</span>
+<span style="color: #569cd6;">CREATE TABLE</span> PRODUCTION (
+    prod_id         <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">PRIMARY KEY</span>,
+    farm_id         <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    crop_id         <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    year            <span style="color: #4ec9b0;">INT</span>           <span style="color: #569cd6;">NOT NULL</span>,
+    quantity_ton    <span style="color: #4ec9b0;">DECIMAL(10,2)</span> <span style="color: #569cd6;">NOT NULL</span>,
+    production_cost <span style="color: #4ec9b0;">DECIMAL(12,2)</span> <span style="color: #569cd6;">NOT NULL</span>,
+    <span style="color: #569cd6;">FOREIGN KEY</span> (farm_id) <span style="color: #569cd6;">REFERENCES</span> FARMS(farm_id),
+    <span style="color: #569cd6;">FOREIGN KEY</span> (crop_id) <span style="color: #569cd6;">REFERENCES</span> CROPS(crop_id)
+);
+
+<span style="color: #6a9955;">-- SALES Table</span>
+<span style="color: #569cd6;">CREATE TABLE</span> SALES (
+    sale_id        <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">PRIMARY KEY</span>,
+    prod_id        <span style="color: #4ec9b0;">VARCHAR(10)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    sale_date      <span style="color: #4ec9b0;">DATE</span>          <span style="color: #569cd6;">NOT NULL</span>,
+    quantity_sold  <span style="color: #4ec9b0;">DECIMAL(10,2)</span> <span style="color: #569cd6;">NOT NULL</span>,
+    unit_price     <span style="color: #4ec9b0;">DECIMAL(10,2)</span> <span style="color: #569cd6;">NOT NULL</span>,
+    buyer_name     <span style="color: #4ec9b0;">VARCHAR(50)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    payment_status <span style="color: #4ec9b0;">VARCHAR(20)</span>   <span style="color: #569cd6;">NOT NULL</span>,
+    <span style="color: #569cd6;">FOREIGN KEY</span> (prod_id) <span style="color: #569cd6;">REFERENCES</span> PRODUCTION(prod_id)
+);
+</pre>
+      </div>
+
+      <!-- Insert Data -->
+      <div
+        style="
+          background: #1e1e1e;
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 15px;
+          overflow-x: auto;
+        "
+      >
+        <div
+          style="
+            color: #4caf50;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+          "
+        >
+          -- Step 3: Insert Sample Data
+        </div>
+        <pre
+          style="
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 0;
+            white-space: pre-wrap;
+          "
+        >
+<span style="color: #6a9955;">-- Insert into FARMS</span>
+<span style="color: #569cd6;">INSERT INTO</span> FARMS (farm_id, farm_name, location, area_acres) <span style="color: #569cd6;">VALUES</span>
+(<span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'Sunrise Farm'</span>, <span style="color: #ce9178;">'Rajshahi'</span>, <span style="color: #b5cea8;">450</span>),
+(<span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'Golden Fields'</span>, <span style="color: #ce9178;">'Dinajpur'</span>, <span style="color: #b5cea8;">380</span>),
+(<span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'Green Valley'</span>, <span style="color: #ce9178;">'Bogra'</span>, <span style="color: #b5cea8;">520</span>),
+(<span style="color: #ce9178;">'F004'</span>, <span style="color: #ce9178;">'River Bank Farm'</span>, <span style="color: #ce9178;">'Rangpur'</span>, <span style="color: #b5cea8;">290</span>),
+(<span style="color: #ce9178;">'F005'</span>, <span style="color: #ce9178;">'Horizon Acres'</span>, <span style="color: #ce9178;">'Jessore'</span>, <span style="color: #b5cea8;">410</span>);
+
+<span style="color: #6a9955;">-- Insert into CROPS</span>
+<span style="color: #569cd6;">INSERT INTO</span> CROPS (crop_id, crop_name, category, season) <span style="color: #569cd6;">VALUES</span>
+(<span style="color: #ce9178;">'C001'</span>, <span style="color: #ce9178;">'Boro Rice'</span>, <span style="color: #ce9178;">'Cereal'</span>, <span style="color: #ce9178;">'Winter'</span>),
+(<span style="color: #ce9178;">'C002'</span>, <span style="color: #ce9178;">'Aman Rice'</span>, <span style="color: #ce9178;">'Cereal'</span>, <span style="color: #ce9178;">'Monsoon'</span>),
+(<span style="color: #ce9178;">'C003'</span>, <span style="color: #ce9178;">'Wheat'</span>, <span style="color: #ce9178;">'Cereal'</span>, <span style="color: #ce9178;">'Winter'</span>),
+(<span style="color: #ce9178;">'C004'</span>, <span style="color: #ce9178;">'Potato'</span>, <span style="color: #ce9178;">'Vegetable'</span>, <span style="color: #ce9178;">'Winter'</span>),
+(<span style="color: #ce9178;">'C005'</span>, <span style="color: #ce9178;">'Tomato'</span>, <span style="color: #ce9178;">'Vegetable'</span>, <span style="color: #ce9178;">'Winter'</span>),
+(<span style="color: #ce9178;">'C006'</span>, <span style="color: #ce9178;">'Mango'</span>, <span style="color: #ce9178;">'Fruit'</span>, <span style="color: #ce9178;">'Summer'</span>),
+(<span style="color: #ce9178;">'C007'</span>, <span style="color: #ce9178;">'Jute'</span>, <span style="color: #ce9178;">'Fiber'</span>, <span style="color: #ce9178;">'Monsoon'</span>);
+
+<span style="color: #6a9955;">-- Insert into EMPLOYEES</span>
+<span style="color: #569cd6;">INSERT INTO</span> EMPLOYEES (emp_id, emp_name, farm_id, designation, salary, join_date) <span style="color: #569cd6;">VALUES</span>
+(<span style="color: #ce9178;">'E001'</span>, <span style="color: #ce9178;">'Karim Uddin'</span>, <span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'Farm Manager'</span>, <span style="color: #b5cea8;">45000</span>, <span style="color: #ce9178;">'2018-03-15'</span>),
+(<span style="color: #ce9178;">'E002'</span>, <span style="color: #ce9178;">'Rahim Ahmed'</span>, <span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'Supervisor'</span>, <span style="color: #b5cea8;">28000</span>, <span style="color: #ce9178;">'2019-06-20'</span>),
+(<span style="color: #ce9178;">'E003'</span>, <span style="color: #ce9178;">'Fatema Begum'</span>, <span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'Farm Manager'</span>, <span style="color: #b5cea8;">42000</span>, <span style="color: #ce9178;">'2017-01-10'</span>),
+(<span style="color: #ce9178;">'E004'</span>, <span style="color: #ce9178;">'Jamal Hossain'</span>, <span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'Field Worker'</span>, <span style="color: #b5cea8;">15000</span>, <span style="color: #ce9178;">'2020-08-05'</span>),
+(<span style="color: #ce9178;">'E005'</span>, <span style="color: #ce9178;">'Nasreen Akter'</span>, <span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'Supervisor'</span>, <span style="color: #b5cea8;">30000</span>, <span style="color: #ce9178;">'2019-11-12'</span>),
+(<span style="color: #ce9178;">'E006'</span>, <span style="color: #ce9178;">'Belal Khan'</span>, <span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'Field Worker'</span>, <span style="color: #b5cea8;">16000</span>, <span style="color: #ce9178;">'2021-02-28'</span>),
+(<span style="color: #ce9178;">'E007'</span>, <span style="color: #ce9178;">'Shirin Sultana'</span>, <span style="color: #ce9178;">'F004'</span>, <span style="color: #ce9178;">'Farm Manager'</span>, <span style="color: #b5cea8;">40000</span>, <span style="color: #ce9178;">'2018-09-01'</span>),
+(<span style="color: #ce9178;">'E008'</span>, <span style="color: #ce9178;">'Mostafa Ali'</span>, <span style="color: #569cd6;">NULL</span>, <span style="color: #ce9178;">'Consultant'</span>, <span style="color: #b5cea8;">55000</span>, <span style="color: #ce9178;">'2022-01-15'</span>);
+
+<span style="color: #6a9955;">-- Insert into PRODUCTION</span>
+<span style="color: #569cd6;">INSERT INTO</span> PRODUCTION (prod_id, farm_id, crop_id, year, quantity_ton, production_cost) <span style="color: #569cd6;">VALUES</span>
+(<span style="color: #ce9178;">'P001'</span>, <span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'C001'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">850</span>, <span style="color: #b5cea8;">425000</span>),
+(<span style="color: #ce9178;">'P002'</span>, <span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'C004'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">320</span>, <span style="color: #b5cea8;">192000</span>),
+(<span style="color: #ce9178;">'P003'</span>, <span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'C001'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">720</span>, <span style="color: #b5cea8;">360000</span>),
+(<span style="color: #ce9178;">'P004'</span>, <span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'C003'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">450</span>, <span style="color: #b5cea8;">225000</span>),
+(<span style="color: #ce9178;">'P005'</span>, <span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'C002'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">680</span>, <span style="color: #b5cea8;">340000</span>),
+(<span style="color: #ce9178;">'P006'</span>, <span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'C005'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">180</span>, <span style="color: #b5cea8;">126000</span>),
+(<span style="color: #ce9178;">'P007'</span>, <span style="color: #ce9178;">'F004'</span>, <span style="color: #ce9178;">'C006'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">95</span>, <span style="color: #b5cea8;">76000</span>),
+(<span style="color: #ce9178;">'P008'</span>, <span style="color: #ce9178;">'F001'</span>, <span style="color: #ce9178;">'C001'</span>, <span style="color: #b5cea8;">2023</span>, <span style="color: #b5cea8;">780</span>, <span style="color: #b5cea8;">390000</span>),
+(<span style="color: #ce9178;">'P009'</span>, <span style="color: #ce9178;">'F002'</span>, <span style="color: #ce9178;">'C001'</span>, <span style="color: #b5cea8;">2023</span>, <span style="color: #b5cea8;">650</span>, <span style="color: #b5cea8;">325000</span>),
+(<span style="color: #ce9178;">'P010'</span>, <span style="color: #ce9178;">'F003'</span>, <span style="color: #ce9178;">'C007'</span>, <span style="color: #b5cea8;">2024</span>, <span style="color: #b5cea8;">420</span>, <span style="color: #b5cea8;">168000</span>);
+
+<span style="color: #6a9955;">-- Insert into SALES</span>
+<span style="color: #569cd6;">INSERT INTO</span> SALES (sale_id, prod_id, sale_date, quantity_sold, unit_price, buyer_name, payment_status) <span style="color: #569cd6;">VALUES</span>
+(<span style="color: #ce9178;">'S001'</span>, <span style="color: #ce9178;">'P001'</span>, <span style="color: #ce9178;">'2024-04-15'</span>, <span style="color: #b5cea8;">400</span>, <span style="color: #b5cea8;">52000</span>, <span style="color: #ce9178;">'City Traders Ltd'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S002'</span>, <span style="color: #ce9178;">'P001'</span>, <span style="color: #ce9178;">'2024-05-20'</span>, <span style="color: #b5cea8;">300</span>, <span style="color: #b5cea8;">54000</span>, <span style="color: #ce9178;">'National Foods'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S003'</span>, <span style="color: #ce9178;">'P002'</span>, <span style="color: #ce9178;">'2024-03-10'</span>, <span style="color: #b5cea8;">200</span>, <span style="color: #b5cea8;">35000</span>, <span style="color: #ce9178;">'Fresh Mart'</span>, <span style="color: #ce9178;">'Pending'</span>),
+(<span style="color: #ce9178;">'S004'</span>, <span style="color: #ce9178;">'P003'</span>, <span style="color: #ce9178;">'2024-04-25'</span>, <span style="color: #b5cea8;">500</span>, <span style="color: #b5cea8;">51000</span>, <span style="color: #ce9178;">'City Traders Ltd'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S005'</span>, <span style="color: #ce9178;">'P004'</span>, <span style="color: #ce9178;">'2024-05-05'</span>, <span style="color: #b5cea8;">300</span>, <span style="color: #b5cea8;">42000</span>, <span style="color: #ce9178;">'Grain House'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S006'</span>, <span style="color: #ce9178;">'P005'</span>, <span style="color: #ce9178;">'2024-10-18'</span>, <span style="color: #b5cea8;">400</span>, <span style="color: #b5cea8;">48000</span>, <span style="color: #ce9178;">'National Foods'</span>, <span style="color: #ce9178;">'Pending'</span>),
+(<span style="color: #ce9178;">'S007'</span>, <span style="color: #ce9178;">'P006'</span>, <span style="color: #ce9178;">'2024-02-28'</span>, <span style="color: #b5cea8;">100</span>, <span style="color: #b5cea8;">65000</span>, <span style="color: #ce9178;">'Fresh Mart'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S008'</span>, <span style="color: #ce9178;">'P007'</span>, <span style="color: #ce9178;">'2024-06-15'</span>, <span style="color: #b5cea8;">60</span>, <span style="color: #b5cea8;">120000</span>, <span style="color: #ce9178;">'Export Corp'</span>, <span style="color: #ce9178;">'Paid'</span>),
+(<span style="color: #ce9178;">'S009'</span>, <span style="color: #ce9178;">'P010'</span>, <span style="color: #ce9178;">'2024-09-20'</span>, <span style="color: #b5cea8;">350</span>, <span style="color: #b5cea8;">55000</span>, <span style="color: #ce9178;">'Jute Mills Ltd'</span>, <span style="color: #ce9178;">'Pending'</span>),
+(<span style="color: #ce9178;">'S010'</span>, <span style="color: #ce9178;">'P003'</span>, <span style="color: #ce9178;">'2024-06-10'</span>, <span style="color: #b5cea8;">150</span>, <span style="color: #b5cea8;">53000</span>, <span style="color: #ce9178;">'Grain House'</span>, <span style="color: #ce9178;">'Paid'</span>);
+</pre>
+      </div>
+
+      <!-- Verification Queries -->
+      <div
+        style="
+          background: #1e1e1e;
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 15px;
+          overflow-x: auto;
+        "
+      >
+        <div
+          style="
+            color: #4caf50;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+          "
+        >
+          -- Step 4: Verify Data (Optional)
+        </div>
+        <pre
+          style="
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 0;
+            white-space: pre-wrap;
+          "
+        >
+<span style="color: #6a9955;">-- Check record counts in all tables</span>
+<span style="color: #569cd6;">SELECT</span> <span style="color: #ce9178;">'FARMS'</span> <span style="color: #569cd6;">AS</span> table_name, <span style="color: #dcdcaa;">COUNT</span>(*) <span style="color: #569cd6;">AS</span> record_count <span style="color: #569cd6;">FROM</span> FARMS
+<span style="color: #569cd6;">UNION ALL</span>
+<span style="color: #569cd6;">SELECT</span> <span style="color: #ce9178;">'CROPS'</span>, <span style="color: #dcdcaa;">COUNT</span>(*) <span style="color: #569cd6;">FROM</span> CROPS
+<span style="color: #569cd6;">UNION ALL</span>
+<span style="color: #569cd6;">SELECT</span> <span style="color: #ce9178;">'EMPLOYEES'</span>, <span style="color: #dcdcaa;">COUNT</span>(*) <span style="color: #569cd6;">FROM</span> EMPLOYEES
+<span style="color: #569cd6;">UNION ALL</span>
+<span style="color: #569cd6;">SELECT</span> <span style="color: #ce9178;">'PRODUCTION'</span>, <span style="color: #dcdcaa;">COUNT</span>(*) <span style="color: #569cd6;">FROM</span> PRODUCTION
+<span style="color: #569cd6;">UNION ALL</span>
+<span style="color: #569cd6;">SELECT</span> <span style="color: #ce9178;">'SALES'</span>, <span style="color: #dcdcaa;">COUNT</span>(*) <span style="color: #569cd6;">FROM</span> SALES;
+
+<span style="color: #6a9955;">-- Expected Output:</span>
+<span style="color: #6a9955;">-- FARMS: 5 records</span>
+<span style="color: #6a9955;">-- CROPS: 7 records</span>
+<span style="color: #6a9955;">-- EMPLOYEES: 8 records</span>
+<span style="color: #6a9955;">-- PRODUCTION: 10 records</span>
+<span style="color: #6a9955;">-- SALES: 10 records</span>
+</pre>
+      </div>
+    </div>
+
+    <div class="questions-section">
+      <h3>✍️ SQL Query Questions</h3>
+
+      <!-- Question 1: INNER JOIN -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 1</span>
+          <span class="question-topic">INNER JOIN</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          The management wants to review which employees are working at which
+          farms. Write an SQL query to display the
+          <strong>employee name, designation, farm name, and location</strong>
+          for all employees who are currently assigned to a farm. Sort the
+          results by farm name in ascending order.
+        </div>
+        <div class="hint">
+          💡 Hint: Use INNER JOIN between EMPLOYEES and FARMS tables on farm_id.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> emp_name, designation, farm_name,
+          location
+        </div>
+      </div>
+
+      <!-- Question 2: LEFT JOIN -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 2</span>
+          <span class="question-topic">LEFT JOIN</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          The HR department needs a complete list of all employees including
+          those who may not be assigned to any specific farm (like consultants).
+          Write an SQL query to display
+          <strong
+            >employee ID, employee name, designation, salary, and farm
+            name</strong
+          >. For employees not assigned to any farm, display
+          <strong>'Unassigned'</strong> instead of NULL.
+        </div>
+        <div class="hint">
+          💡 Hint: Use LEFT JOIN and ISNULL() or COALESCE() function to handle
+          NULL values.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> emp_id, emp_name, designation,
+          salary, farm_name (or 'Unassigned')
+        </div>
+      </div>
+
+      <!-- Question 3: Aggregate Functions -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 3</span>
+          <span class="question-topic">AGGREGATE FUNCTIONS</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          The finance department requires a comprehensive summary of the
+          company's production statistics for the year 2024. Write a single SQL
+          query that displays:
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 12px">
+            <li><strong>Total number</strong> of production records</li>
+            <li><strong>Total quantity</strong> produced (in tons)</li>
+            <li><strong>Average production</strong> quantity per record</li>
+            <li><strong>Maximum</strong> single production quantity</li>
+            <li><strong>Minimum</strong> single production quantity</li>
+            <li><strong>Total production cost</strong></li>
+          </ul>
+        </div>
+        <div class="hint">
+          💡 Hint: Use COUNT(), SUM(), AVG(), MAX(), MIN() functions with WHERE
+          clause for year 2024.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> total_records, total_quantity,
+          avg_quantity, max_quantity, min_quantity, total_cost
+        </div>
+      </div>
+
+      <!-- Question 4: GROUP BY with HAVING -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 4</span>
+          <span class="question-topic">GROUP BY + HAVING</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          Management wants to identify high-performing farms for bonus
+          allocation. Write an SQL query to display the
+          <strong>farm name and total production quantity</strong> for each farm
+          in year 2024. Only show farms that have produced
+          <strong>more than 500 tons</strong> in total. Order the results by
+          total production in descending order.
+        </div>
+        <div class="hint">
+          💡 Hint: Use JOIN between FARMS and PRODUCTION, GROUP BY farm, and
+          HAVING clause to filter aggregated results.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> farm_name, total_production
+        </div>
+      </div>
+
+      <!-- Question 5: CASE Statement -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 5</span>
+          <span class="question-topic">CASE STATEMENT</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          The company wants to categorize employees based on their salary for a
+          new benefits program. Write an SQL query to display
+          <strong>employee name, designation, salary</strong>, and a new column
+          <strong>'salary_grade'</strong> based on the following criteria:
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 12px">
+            <li>Salary ≥ 40000: <strong>'Grade A - Executive'</strong></li>
+            <li>
+              Salary ≥ 25000 and < 40000:
+              <strong>'Grade B - Senior Staff'</strong>
+            </li>
+            <li>
+              Salary ≥ 15000 and < 25000:
+              <strong>'Grade C - Junior Staff'</strong>
+            </li>
+            <li>Salary < 15000: <strong>'Grade D - Trainee'</strong></li>
+          </ul>
+        </div>
+        <div class="hint">
+          💡 Hint: Use CASE WHEN ... THEN ... ELSE ... END to create conditional
+          output.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> emp_name, designation, salary,
+          salary_grade
+        </div>
+      </div>
+
+      <!-- Question 6: String Functions -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 6</span>
+          <span class="question-topic">STRING FUNCTIONS</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          For generating employee ID cards, the administration needs formatted
+          data. Write an SQL query to display:
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 12px">
+            <li><strong>emp_id</strong></li>
+            <li><strong>Employee name in UPPERCASE</strong></li>
+            <li>
+              <strong>First 3 characters</strong> of the employee name as
+              'name_code'
+            </li>
+            <li>
+              <strong>Length</strong> of the employee name as 'name_length'
+            </li>
+            <li>
+              A <strong>formatted string</strong> combining emp_id and name
+              like: 'E001-KARIM UDDIN' as 'id_card_number'
+            </li>
+          </ul>
+        </div>
+        <div class="hint">
+          💡 Hint: Use UPPER(), LEFT() or SUBSTRING(), LEN() or LENGTH(), and
+          CONCAT() functions.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> emp_id, upper_name, name_code,
+          name_length, id_card_number
+        </div>
+      </div>
+
+      <!-- Question 7: Date Functions + Multiple JOINs -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 7</span>
+          <span class="question-topic">DATE FUNCTIONS + JOINS</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          For the annual report, management needs sales analysis with date
+          details. Write an SQL query using multiple joins to display:
+          <strong
+            >sale_id, crop name, farm name, sale_date, quantity_sold,
+            total_sale_value</strong
+          >
+          (quantity_sold × unit_price), and the
+          <strong>month name</strong> extracted from sale_date. Only include
+          sales made in the <strong>first half of 2024</strong> (January to
+          June).
+        </div>
+        <div class="hint">
+          💡 Hint: Join SALES → PRODUCTION → CROPS and FARMS. Use DATENAME() or
+          MONTHNAME() for month, and filter with sale_date range or MONTH()
+          function.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> sale_id, crop_name, farm_name,
+          sale_date, quantity_sold, total_sale_value, sale_month
+        </div>
+      </div>
+
+      <!-- Question 8: Complex Query - Combining Multiple Concepts -->
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">Question 8</span>
+          <span class="question-topic">COMPREHENSIVE QUERY</span>
+          <span class="question-marks">5 Marks</span>
+        </div>
+        <div class="question-text">
+          Create a comprehensive buyer performance report. Write an SQL query to
+          display <strong>buyer_name</strong>,
+          <strong>total number of purchases</strong>,
+          <strong>total quantity purchased</strong>,
+          <strong>total amount spent</strong>,
+          <strong>average purchase value</strong>, and a
+          <strong>buyer_category</strong> column that classifies buyers as:
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 12px">
+            <li>
+              Total amount ≥ 25,000,000: <strong>'Platinum Buyer'</strong>
+            </li>
+            <li>
+              Total amount ≥ 15,000,000 and < 25,000,000:
+              <strong>'Gold Buyer'</strong>
+            </li>
+            <li>Total amount < 15,000,000: <strong>'Silver Buyer'</strong></li>
+          </ul>
+          Only show buyers who have made <strong>at least 2 purchases</strong>.
+          Order by total amount spent in descending order.
+        </div>
+        <div class="hint">
+          💡 Hint: Combine GROUP BY, HAVING, aggregate functions (COUNT, SUM,
+          AVG), and CASE statement.
+        </div>
+        <div class="expected-output">
+          <strong>Expected Columns:</strong> buyer_name, purchase_count,
+          total_quantity, total_amount, avg_purchase, buyer_category
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        <strong>📝 Note:</strong> Ensure proper indentation and formatting in
+        your SQL queries. Partial marks will be awarded for correct logic with
+        minor syntax errors.
+      </p>
+      <p style="margin-top: 10px">Good Luck! 🍀</p>
+    </div>
+  </body>
+</html>
