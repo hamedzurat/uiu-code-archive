@@ -1,0 +1,55 @@
+USE zurat_petcare;
+
+INSERT INTO employee (name, address, salary)
+VALUES
+    ('John Doe', 'New York', 55000),
+    ('Jane Smith', 'California', 62000),
+    ('Michael Brown', 'Texas', 48000),
+    ('Emily Davis', 'Florida', 70000),
+    ('David Wilson', 'Washington', 65000),
+    ('Sarah Johnson', 'Illinois', 59000),
+    ('Chris Taylor', 'Ohio', 52000),
+    ('Amanda Moore', 'Arizona', 61000),
+    ('Daniel Anderson', 'Nevada', 58000),
+    ('Laura Thomas', 'Georgia', 54000),
+    ('Matthew Jackson', 'Colorado', 73000),
+    ('Sophia White', 'Oregon', 56000),
+    ('James Harris', 'Virginia', 60000),
+    ('Olivia Martin', 'Michigan', 57000),
+    ('Andrew Thompson', 'Utah', 68000),
+    ('Emma Garcia', 'New Mexico', 51000),
+    ('Joshua Martinez', 'New Jersey', 75000),
+    ('Isabella Robinson', 'Pennsylvania', 63000),
+    ('Ryan Clark', 'North Carolina', 49000),
+    ('Mia Lewis', 'South Carolina', 53000);
+
+INSERT INTO employeeLog (empid, logmsg)
+VALUES
+    (1, 'Employee record created'),
+    (1, 'Salary reviewed'),
+    (2, 'Employee record created'),
+    (2, 'Address updated'),
+    (3, 'Employee record created'),
+    (3, 'Performance review completed'),
+    (4, 'Employee record created'),
+    (4, 'Salary increased'),
+    (5, 'Employee record created'),
+    (6, 'Employee record created'),
+    (6, 'Promotion applied'),
+    (7, 'Employee record created'),
+    (8, 'Employee record created'),
+    (8, 'Salary updated'),
+    (9, 'Employee record created'),
+    (10, 'Employee record created'),
+    (11, 'Employee record created'),
+    (11, 'Annual bonus added'),
+    (12, 'Employee record created'),
+    (13, 'Employee record created'),
+    (14, 'Employee record created'),
+    (15, 'Employee record created'),
+    (16, 'Employee record created'),
+    (17, 'Employee record created'),
+    (18, 'Employee record created'),
+    (19, 'Employee record created'),
+    (20, 'Employee record created');
+

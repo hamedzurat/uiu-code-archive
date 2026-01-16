@@ -1,0 +1,24 @@
+[sqlfluff]
+dialect = tsql
+max_line_length = 0
+exclude_rules = CP02, AL01, AL02
+
+[sqlfluff:indentation]
+indent_unit = space
+tab_space_size = 4
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = consistent
+
+[sqlfluff:rules:capitalisation.types]
+capitalisation_policy = upper
+
+[sqlfluff:layout:type:comma]
+line_position = trailing
+
+[sqlfluff:layout:type:set_operator]
+line_position = leading
+
