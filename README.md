@@ -66,6 +66,10 @@ This repository archives my code from coursework, assignments, and homework at U
 
 ![pythagoras](./__drawings__/DB-ct1.png)
 
-#### BD mid
+#### DB mid
 
 ![first love](./__drawings__/DB-mid.png)
+
+#### WEB final
+
+![coding](./__drawings__/web-fnl.png)
