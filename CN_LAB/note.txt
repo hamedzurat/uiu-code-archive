@@ -1,0 +1,34 @@
+enable
+erase startup-config
+reload
+
+enable
+configure terminal
+hostname R1
+no ip domain-loopup
+
+enable secret 1234
+
+banner motd &
+asdasdadasd
+&
+
+line console 0
+password cisco
+login exit
+
+line vty 0 4
+...
+
+interface fastethernet 0/0
+ip address <ip> <sub>
+no shutdown
+
+interface serial 0/0/0
+...
+clock rate 64000
+...
+
+end
+copy running-config startup-config
+

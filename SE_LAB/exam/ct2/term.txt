@@ -1,0 +1,423 @@
+student@Lab9pc-17 MINGW64 ~/Desktop/0113
+$ mkdir ct
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113
+$ cd ct/
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct
+$ ls
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct
+$ git init
+Initialized empty Git repository in C:/Users/student/Desktop/0113/ct/.git/
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ touch notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        notes.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$nano notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git add notes.txt
+warning: in the working copy of 'notes.txt', LF will be replaced by CRLF the next time Git touches it
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   notes.txt
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git commit -m "feat: adding notes.txt file"
+[master (root-commit) 7231f67] feat: adding notes.txt file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git log --oneline
+7231f67 (HEAD -> master) feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ touch temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ nano temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ nano notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   notes.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        temp.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git add notes.txt temp.txt
+warning: in the working copy of 'notes.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'temp.txt', LF will be replaced by CRLF the next time Git touches it
+g
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   notes.txt
+        new file:   temp.txt
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git commit -m "feat: adding temp.txt and more content in notes"
+[master f23d71c] feat: adding temp.txt and more content in notes
+ 2 files changed, 3 insertions(+)
+ create mode 100644 temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$git log --oneline
+f23d71c (HEAD -> master) feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ nano notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git diff
+warning: in the working copy of 'notes.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/notes.txt b/notes.txt
+index 9a35660..1a9f34e 100644
+--- a/notes.txt
++++ b/notes.txt
+@@ -1,3 +1,4 @@
+ aaaaaaaaaaaaaaaaaaaaaaaa
+ bbbbbbbbbbbbbbbbbbbbbbbb
++cccccccccccccccccccccccc
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git add notes.txt
+warning: in the working copy of 'notes.txt', LF will be replaced by CRLF the next time Git touches it
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git restore --staged notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   notes.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ nano temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   notes.txt
+        modified:   temp.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git restore temp.txt notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git diff
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ 
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ nano notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git commit -m "refactor: lots of c"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   notes.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git add notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git commit -m "refactor: lots of c"
+[master d0f0120] refactor: lots of c
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git log --oneline
+d0f0120 (HEAD -> master) refactor: lots of c
+f23d71c feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git reset --hard HEAD~1
+HEAD is now at f23d71c feat: adding temp.txt and more content in notes
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git log --oneline
+f23d71c (HEAD -> master) feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ cat notes.txt
+aaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbb
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$
+
+
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git checkout -b dev
+Switched to a new branch 'dev'
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$ nano notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$ git add notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$ git commit -m "feat: hello world"
+[dev 995ad7e] feat: hello world
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$ git log --oneline
+995ad7e (HEAD -> dev) feat: hello world
+f23d71c (master) feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$
+
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (dev)
+$ git checkout master
+Switched to branch 'master'
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ rm temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git add temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ ls
+notes.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git commit -m "refactor: deleted temp.txt"
+[master 4fa7249] refactor: deleted temp.txt
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 temp.txt
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git log --oneline
+4fa7249 (HEAD -> master) refactor: deleted temp.txt
+f23d71c feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+
+
+
+
+
+
+
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git merge dev
+
+
+
+hint: Waiting for your editor to close the file...
+/usr/bin/bash: line 1: wq: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+Merge made by the 'ort' strategy.
+ notes.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$ git log --oneline
+3efdee9 (HEAD -> master) Merge branch 'dev'
+4fa7249 refactor: deleted temp.txt
+995ad7e (dev) feat: hello world
+f23d71c feat: adding temp.txt and more content in notes
+7231f67 feat: adding notes.txt file
+
+student@Lab9pc-17 MINGW64 ~/Desktop/0113/ct (master)
+$git log --graph --oneline
+*   3efdee9 (HEAD -> master) Merge branch 'dev'
+|\
+| * 995ad7e (dev) feat: hello world
+* | 4fa7249 refactor: deleted temp.txt
+|/
+* f23d71c feat: adding temp.txt and more content in notes
+* 7231f67 feat: adding notes.txt file
+
+
+
+
+
+
+

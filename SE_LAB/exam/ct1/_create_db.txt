@@ -1,0 +1,34 @@
+CREATE DATABASE ct;
+
+USE ct;
+
+CREATE TABLE movies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    genre VARCHAR(100),
+    release_year INT
+);
+
+CREATE TABLE actor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    movie_title VARCHAR(100)
+);
+
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_title VARCHAR(100),
+    reviewer_name VARCHAR(100),
+    rating INT
+);
+
+INSERT INTO movies (title, genre, release_year) VALUES ("prj hail marry", "scifi", 2026);
+INSERT INTO movies (title, genre, release_year) VALUES ("the martian", "scifi", 2026);
+
+
+INSERT INTO actor (name, age, movie_title) VALUES ("aaa", 56, "prj hail marry");
+INSERT INTO actor (name, age, movie_title) VALUES ("bbb", 56, "prj hail marry");
+
+INSERT INTO reviews (movie_title, reviewer_name, rating) VALUES ("prj hail marry", "cat bugller", "90");
+INSERT INTO reviews (movie_title, reviewer_name, rating) VALUES ("the martian", "jim carry", "70");

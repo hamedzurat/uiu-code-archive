@@ -73,3 +73,7 @@ This repository archives my code from coursework, assignments, and homework at U
 #### WEB final
 
 ![coding](./__drawings__/web-fnl.png)
+
+#### SE ct 2
+
+![mountains](./__drawings__/SE-ct2.png)
